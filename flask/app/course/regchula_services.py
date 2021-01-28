@@ -138,5 +138,5 @@ def getCourse(id: str, year: int, sem: int) -> tuple[dict[str, Any], int]:
 
         courseJson["timestamp"] = datetime.today().strftime("%d/%m/%Y, %H:%M:%S")
 
-    statusCode = 200 if len(courseJson) > 0 else 202
+    statusCode = 200 if len(courseJson) > 0 else 204
     return courseJson, statusCode
