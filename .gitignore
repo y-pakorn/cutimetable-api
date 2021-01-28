@@ -1,0 +1,6 @@
+nginx/
+docker-compose.yml
+flask/Dockerfile
+flask/env/
+flask/app.ini
+flask/__pycache__
