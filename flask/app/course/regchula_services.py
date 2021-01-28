@@ -43,7 +43,10 @@ def getCourse(id: str, year: int, sem: int) -> tuple[dict[str, Any], int]:
         courseJson["thainame"] = courseInfo[-3]
         courseJson["credits"] = {
             "total": intTryParse(re.findall(r"(\d).\d\sCRE", creditHours[0])[0][0])[0],
-            "type": {k: v for k, v in re.findall(r"(\w+)\s(\d).\d", creditHours[0])},
+            "type": {
+                k: intTryParse(v)[0]
+                for k, v in re.findall(r"(\w+)\s(\d).\d", creditHours[0])
+            },
         }
         courseJson["prerequisite"] = re.findall(r"PRER\s(\d+)", creditHours[-1])
         courseJson["corequisite"] = re.findall(r"COREQ\s(\d+)", creditHours[-1])
@@ -135,5 +138,5 @@ def getCourse(id: str, year: int, sem: int) -> tuple[dict[str, Any], int]:
 
         courseJson["timestamp"] = datetime.today().strftime("%d/%m/%Y, %H:%M:%S")
 
-    statusCode = 200 if len(courseJson) > 0 else 200
+    statusCode = 200 if len(courseJson) > 0 else 202
     return courseJson, statusCode
