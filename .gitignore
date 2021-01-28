@@ -4,3 +4,5 @@ flask/Dockerfile
 flask/env/
 flask/app.ini
 flask/__pycache__
+flask/app/__pycache__
+flask/app/course/__pycache__

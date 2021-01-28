@@ -40,7 +40,7 @@ def getCourse(id: str, year: int, sem: int) -> tuple[dict[str, Any], int]:
         courseJson["semester"] = sem
         courseJson["name"] = " ".join(courseInfo[2].split()[1:])
         courseJson["fullName"] = courseInfo[-2]
-        courseJson["thainame"] = courseInfo[-3]
+        courseJson["thaiName"] = courseInfo[-3]
         courseJson["credits"] = {
             "total": intTryParse(re.findall(r"(\d).\d\sCRE", creditHours[0])[0][0])[0],
             "type": {
@@ -110,7 +110,7 @@ def getCourse(id: str, year: int, sem: int) -> tuple[dict[str, Any], int]:
 
         sectionList = [
             {
-                "section": re.findall(r"\d{1,2}", section[0])[0],
+                "section": intTryParse(re.findall(r"\d{1,2}", section[0])[0])[0],
                 "type": None if validateSection(section, 1) else section[1],
                 "day": None if validateSection(section, 2) else section[2].split(),
                 "time": None
@@ -126,8 +126,8 @@ def getCourse(id: str, year: int, sem: int) -> tuple[dict[str, Any], int]:
                 "regis": None
                 if validateSection(section, 8)
                 else {
-                    "current": section[8].split("/")[0],
-                    "max": section[8].split("/")[1],
+                    "current": intTryParse(section[8].split("/")[0])[0],
+                    "max": intTryParse(section[8].split("/")[1])[0],
                 },
             }
             for section in sections
