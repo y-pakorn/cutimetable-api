@@ -1,5 +1,6 @@
 # CU Course Timetable API
 <p align="center">
+  <p align="center"><img alt="Header" src="https://i.imgur.com/9FQnpGh.png"></p>
   <p align="center">Chulalongkorn university course API from web scrapping.</p>
   <p align="center">
     <a href="/LICENSE.md"><img alt="Software License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
@@ -44,6 +45,12 @@ pip install -r requirements.txt
 ### Usage
 
 Simply ```python3 run.py``` and the app will be served at https://localhost:5000/cutimetable/v1/ (Refer to docs for API path)
+
+### Example
+
+Example json output of the API
+
+![Json output](https://i.imgur.com/QkDFeFQ.png)
 
 ## Contributing
 
